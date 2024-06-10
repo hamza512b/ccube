@@ -5,6 +5,6 @@
 
 void clear_screen();
 void draw_point(int x, int y, int intensity);
-void draw_triangle(const Vertex2d *v1, const Vertex2d *v2, const Vertex2d *v3, int intensity);
+void draw_triangle(const V2 *v1, const V2 *v2, const V2 *v3, int intensity);
 
 #endif

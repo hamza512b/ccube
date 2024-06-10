@@ -3,25 +3,28 @@
 
 #include "matrix.h"
 
-typedef struct {
-    Vertex3d vertices[36];
+typedef struct
+{
+    V3 vertices[36];
     int faceColors[6];
 } Cube;
 
-// Global variable for the , initialized directly
+// Global variable for the cube (clockwise order so culling works)
 Cube cube = {
     .vertices = {
         // Front face
         {-1, -1, -1}, {1, -1, -1}, {1, 1, -1},
         {-1, -1, -1}, {1, 1, -1}, {-1, 1, -1},
 
-        // Back face
-        {-1, -1, 1}, {-1, 1, 1}, {1, 1, 1},
-        {-1, -1, 1}, {1, 1, 1}, {1, -1, 1},
+     
 
+        // Back face
+        {1, -1, 1}, {-1, -1, 1}, {-1, 1, 1},
+        {1, -1, 1}, {-1, 1, 1}, {1, 1, 1},
+        
         // Left face
-        {-1, -1, -1}, {-1, 1, -1}, {-1, 1, 1},
-        {-1, -1, -1}, {-1, 1, 1}, {-1, -1, 1},
+        {-1, -1, 1}, {-1, -1, -1}, {-1, 1, -1},
+        {-1, -1, 1}, {-1, 1, -1}, {-1, 1, 1},
 
         // Right face
         {1, -1, -1}, {1, -1, 1}, {1, 1, 1},
@@ -32,23 +35,21 @@ Cube cube = {
         {-1, 1, -1}, {1, 1, 1}, {-1, 1, 1},
 
         // Bottom face
-        {-1, -1, -1}, {-1, -1, 1}, {1, -1, 1},
-        {-1, -1, -1}, {1, -1, 1}, {1, -1, -1}
+        {1, -1, -1}, {-1, -1, -1}, {-1, -1, 1},
+        {1, -1, -1}, {-1, -1, 1}, {1, -1, 1},
     },
-    .faceColors = {0, 1, 2, 3, 4, 5} // Colors for each face
 };
+M44 rotation_matrix_x(double angle);
 
-Matrix4 rotation_matrix_x(float angle);
+M44 rotation_matrix_y(double angle);
 
-Matrix4 rotation_matrix_y(float angle);
+M44 rotation_matrix_z(double angle);
 
-Matrix4 rotation_matrix_z(float angle);
+M44 translation_matrix(double tx, double ty, double tz);
 
-Matrix4 translation_matrix(float tx, float ty, float tz);
+M44 scaling_matrix(double sx, double sy, double sz);
 
-Matrix4 scaling_matrix(float sx, float sy, float sz);
+M44 projection_matrix(double fov, double aspect, double near, double far);
 
-Matrix4 projection_matrix(float fov, float aspect, float near, float far);
-
-int is_back_face(Vertex4d* v0, Vertex4d* v1, Vertex4d* v2);
+int is_back_face(V3 *v0, V3 *v1, V3 *v2);
 #endif

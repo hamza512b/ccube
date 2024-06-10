@@ -2,47 +2,37 @@
 #define MATRIX_H
 #define M_PI 3.14159265358979323846
 
-typedef struct {
+typedef struct
+{
     int x;
     int y;
-} Vertex2d;
+} V2;
 
-typedef struct {
-    float x;
-    float y;
-    float z;
-} Vertex3d;
+typedef struct
+{
+    double x;
+    double y;
+    double z;
+} V3;
 
-typedef struct {
-    float x;
-    float y;
-    float z;
-    float w;
-} Vertex4d;
-
-typedef struct {
-    float m[4][4];
-} Matrix4;
+typedef struct
+{
+    double m[4][4];
+} M44;
 
 // Multiply a vertex by a matrix
-Vertex4d multiply_vertex_matrix(const Vertex4d *v, const Matrix4 *m);
+V3 multiply_vertex_matrix(const V3 *v, const M44 *m);
 
 // Multiply two matrices
-Matrix4 multiply_matrices(const Matrix4 *m1, const Matrix4 *m2);
+M44 multiply_matrices(const M44 *m1, const M44 *m2);
 
 // Identity matrix
-Matrix4 identity_matrix();
+M44 identity_matrix();
 
 // Function to compute the cross product of two vectors
-Vertex3d cross_product(Vertex3d* v1, Vertex3d* v2);
+V3 cross_product(V3 *v1, V3 *v2);
 
 // Function to compute the dot product of two vectors
-float dot_product(Vertex3d* v1, Vertex3d* v2);
-
-Vertex3d vertex4d_to_3d(Vertex4d* v);
-
-Vertex4d vertex3d_to_4d(const Vertex3d *v);
-
-Vertex2d project_vertex(const Vertex4d *v);
+double dot_product(V3 *v1, V3 *v2);
 
 #endif

@@ -2,7 +2,7 @@
 CC = gcc
 
 # Define compiler flags
-CFLAGS = -Wall -lm -ggdb
+CFLAGS = -Wall -lm -g
 
 # Define the source and build directories
 SRC_DIR = src
@@ -22,7 +22,7 @@ all: $(TARGET)
 
 # Rule to build the target executable
 $(TARGET): $(OBJ_FILES)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ -lm
 
 # Rule to build object files
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
