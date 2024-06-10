@@ -71,7 +71,6 @@ int main(int argc, char *argv[])
         // Clear screen and draw the transformed and projected cube
         clear_screen();
 
-        int currnet_color = -1;
         // Draw the cube
         for (int k = 0; k < 36; k += 3)
         {
