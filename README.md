@@ -1,4 +1,4 @@
-![rotating-cube](https://github.com/hamza512b/ccube/assets/63897375/7b799f6e-ed0a-48eb-bad5-31ff7ae60c27)
+![Rotating 3d cube](https://github.com/hamza512b/ccube/assets/63897375/f3909e9e-fdd1-456f-876a-0dc338590b6d)
 
 # Rotating Cube in terminal
 I have made this rotating cube from scratch, too learn more about C. I have always been facsinated by 3d computer graphics, which I usually do in Webgl and JavaScript. But since I am learning C, I tried to do this.
