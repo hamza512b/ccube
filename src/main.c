@@ -9,7 +9,7 @@
 #include "matrix.h"
 #include "buffer.h"
 
-int canvas_height, canvas_width;
+extern int canvas_height, canvas_width;
 
 int main(int argc, char *argv[])
 {

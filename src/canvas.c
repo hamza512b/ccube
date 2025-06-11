@@ -32,9 +32,9 @@ void draw_point(int x, int y, int intensity)
     if (intensity > 5) intensity = 5;
 
     // Move cursor and set color
-    char command[64];
-    snprintf(command, sizeof(command), "\033[%d;%dH%s#\033[0m", y, x, colors[intensity]);
-    add_to_buffer(command);
+    char str[13];
+    snprintf(command, sizeof(command), "%s#\033[0m", colors[intensity]);
+    add_to_buffer(command, x, y);
 }
 
 void draw_triangle(const V2 *v1, const V2 *v2, const V2 *v3, int intensity)

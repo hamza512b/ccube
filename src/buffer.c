@@ -1,7 +1,8 @@
 #include "buffer.h"
 
 char buffer[BUFFER_SIZE];
-int buffer_index = 0;
+int width;
+int height;
 
 void flush_buffer() {
     if (buffer_index > 0) {
@@ -11,12 +12,8 @@ void flush_buffer() {
     }
 }
 
-void add_to_buffer(const char *str) {
-    int len = strlen(str);
-    if (buffer_index + len >= BUFFER_SIZE) {
-        flush_buffer();
-    }
-    strcpy(buffer + buffer_index, str);
-    buffer_index += len;
+void add_to_buffer(const char str[13], const int x, const int y) {
+    int buffer_index = y * (canvas_width + 1) * 13 + x * 13;
+    strcpy(buffer, str);
 }
 
