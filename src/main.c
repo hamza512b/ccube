@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     if (argc == 2)
     {
         canvas_height = atoi(argv[1]);
-        canvas_width = canvas_height / 2; // Many terminals fonts have double height as widht
+        canvas_width = canvas_height;
     }
 
     if (argc == 3)
