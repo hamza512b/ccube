@@ -9,14 +9,15 @@
 #include "matrix.h"
 #include "buffer.h"
 
-extern int canvas_height, canvas_width;
+int canvas_height, canvas_width;
+char *buffer = NULL;
 
 int main(int argc, char *argv[])
 {
     if (argc == 2)
     {
         canvas_height = atoi(argv[1]);
-        canvas_width = canvas_height;
+        canvas_width = canvas_height / 2; // Many terminals fonts have double height as widht
     }
 
     if (argc == 3)
@@ -30,6 +31,8 @@ int main(int argc, char *argv[])
         printf("Usage: %s <canvas_height> <canvas_width>\n", argv[0]);
         return 1;
     }
+
+    buffer = init_buffer();
 
     srand(time(NULL)); // Seed the random number generator with the current time
 
@@ -69,7 +72,7 @@ int main(int argc, char *argv[])
         transformation = multiply_matrices(&transformation, &scaling);
 
         // Clear screen and draw the transformed and projected cube
-        clear_screen();
+        flush_buffer();
 
         // Draw the cube
         for (int k = 0; k < 36; k += 3)
@@ -104,5 +107,6 @@ int main(int argc, char *argv[])
         usleep(500000); // sleep for 500 milliseconds
     }
     printf("\n");
+    free(buffer);
     return 0;
 }

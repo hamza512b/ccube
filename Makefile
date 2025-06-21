@@ -2,7 +2,7 @@
 CC = gcc
 
 # Define compiler flags
-CFLAGS = -Wall -lm
+CFLAGS = -Wall -lm -g
 
 # Define the source and build directories
 SRC_DIR = src
