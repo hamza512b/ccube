@@ -11,5 +11,8 @@ make
 
 and then run executable with the width of charachters as argument.
 ```
-./build/draw_cube 50
+./build/draw_cube 40
 ```
+
+
+> Note: If you input a large value and the cube does not fit the screen, make sure to resize your terminal.
