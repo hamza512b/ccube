@@ -16,8 +16,8 @@ int main(int argc, char *argv[])
 {
     if (argc == 2)
     {
-        canvas_width = atoi(argv[1]);
-        canvas_width = canvas_width / 2;
+        canvas_height = atoi(argv[1]);
+        canvas_width = canvas_height;
     }
 
     if (argc == 3)
