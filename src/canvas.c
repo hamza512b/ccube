@@ -3,11 +3,6 @@
 #include "utils.h"
 #include "buffer.h"
 
-void clear_screen()
-{
-    add_to_buffer("\033[H\033[J");
-}
-
 void draw_point(int x, int y, int intensity)
 {
     extern int canvas_width;
@@ -25,16 +20,18 @@ void draw_point(int x, int y, int intensity)
         "\033[38;5;242m",
         "\033[38;5;247m",
         "\033[38;5;251m",
-        "\033[38;5;255m", 
+        "\033[38;5;255m",
     };
 
-    if (intensity < 0) intensity = 0;
-    if (intensity > 5) intensity = 5;
+    if (intensity < 0)
+        intensity = 0;
+    if (intensity > 5)
+        intensity = 5;
 
     // Move cursor and set color
-    char command[64];
-    snprintf(command, sizeof(command), "\033[%d;%dH%s#\033[0m", y, x, colors[intensity]);
-    add_to_buffer(command);
+    char command[STR_SIZE];
+    snprintf(command, sizeof(command), "%s#\033[0m", colors[intensity]);
+    add_to_buffer(command, x, y);
 }
 
 void draw_triangle(const V2 *v1, const V2 *v2, const V2 *v3, int intensity)
