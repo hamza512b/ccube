@@ -48,9 +48,6 @@ void flush_buffer()
         }
         *str = '\0';
     }
-
-    // Last chunk should not have new line
-    *(buffer + STR_SIZE * canvas_height * (canvas_width + 1)) = '\0';
 }
 
 void add_to_buffer(const char *str, const int x, const int y)
