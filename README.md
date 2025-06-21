@@ -2,7 +2,7 @@
 
 # Rotating Cube in terminal
 
-I have made this rotating cube from scratch, too learn more about C. I have always been facsinated by 3d computer graphics, which I usually do in Webgl and JavaScript. But since I am learning C, I tried to do this.
+I have made this rotating cube from scratch, too learn more about C. I have always been fascinated by 3d computer graphics, which I usually do in WebGL and JavaScript. But since I am learning C, I tried to do this.
 
 # To run yourself
 
@@ -12,7 +12,7 @@ Make sure you have make and some c compiler and simple run:
 make
 ```
 
-and then run executable with the width of charachters as argument.
+and then run executable with the width of characters as argument.
 
 ```
 ./build/draw_cube 40
